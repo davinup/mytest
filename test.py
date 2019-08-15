@@ -119,7 +119,7 @@ def test(training_filename, test_filename):
     errorrate=errorcount/test_size
     print ('\n准确率：%f' % (1 - errorrate))
 
-test('Secpulsenews.csv','Secpulsenews.csv')
+test('Nsoadnews.csv','Nsoadnews.csv')
 # data_set=split_word(data_set)
 # tokens = word_tokenize(text)
 # stoplist = stopwords.words('english')
