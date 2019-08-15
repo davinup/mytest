@@ -43,6 +43,7 @@ def data_clean(data_set):
     aggrement = {'代码审计': 1, '无线安全': 2, '移动安全': 3, 'CTF': 4, 'Web安全': 5, '安全报告': 6, '内网渗透': 7, '系统安全': 8, 'Windows': 9,
                  '工控安全': 10, '安全文献': 11, '专题': 12, 'Linux': 13, '国外资讯': 14, '工具': 15, '独家': 16, '国内资讯': 17, '其他': 18}
     # data_set['tags']=data_set['tags'].map(aggrement)
+    data_set.index = range(len(data_set)) #dataframe重设index
     class_label=data_set.tags
     return data_set,class_label
 
@@ -112,14 +113,14 @@ def test(training_filename, test_filename):
     test_size = test_mat.shape[0]
     errorcount=0.0
     for i in range(test_size):
-        preresult=classify(test_mat[i],training_label,training_mat,5)
+        preresult=classify(test_mat[i],training_label,training_mat,3)
         print('模拟预测值：%s,真实值：%s'%(preresult,test_label[i]))
         if (preresult!=test_label[i]):
             errorcount+=1.0
     errorrate=errorcount/test_size
     print ('\n准确率：%f' % (1 - errorrate))
 
-test('Secpulsenews.csv','Secpulsenews.csv')
+test('Nsoadnews.csv','Nsoadnews.csv')
 # data_set=split_word(data_set)
 # tokens = word_tokenize(text)
 # stoplist = stopwords.words('english')
