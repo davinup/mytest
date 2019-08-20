@@ -59,7 +59,7 @@ def gnb_classify(train,test):
     return test
 
 
-data_set=pd.read_csv('KDDTrain+.csv',header=None)
+data_set=pd.read_csv('KDDTest+.csv',header=None)
 
 df=pd.DataFrame(columns = ['A','B','C','D','E'])
 df.iloc[:,0]=data_set.iloc[:,22]
